@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+             <img src="focus.png">
+        </div>
+        <div class="button" id="refresh">
+            <button class="tooltip-button" type="button" title="logout"><i class="fa-solid fa-power-off"></i></button>
+            <div id="logoutModal" class="modal">
+                <div class="modal-content">
+                    <p>Are you sure you want to logout?</p>
+                    <button id="cancelLogout">No</button>
+                    <button id="confirmLogout">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h1>Welcome to your Dashboard</h1>
+        <p>Hi: <span id="userEmail"></span></p>
+    </div>
+    <div class="section1">
+      <h2>Expense Tracker</h2> 
+      <div class="form">
+        <div class="content">
+             <label for="title">Title</label>
+             <input type="text" id="title">
+        </div>
+        <div class="content">
+             <label for="amount">Amount</label>
+             <input type="number" id="number">
+        </div>
+        <div class="content">
+           <label for="date">Date</label>
+           <input type="date" id="date">
+        </div>
+        <div class="content">
+           <label for="category">Category</label>
+           <select id="select">
+              <option value="food">Food</option>
+              <option value="house">House</option>
+              <option value="transport">Transport</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="communication">Communication</option>
+              <option value="health">Health</option>
+              <option value="others">Others</option>
+           </select>
+        </div>
+        <div class="button1">
+            <button type="button" id="confirm">Add Expense</button>
+            <button type="button" id="cancel">Cancel</button>
+        </div>
+      </div>
+      <div class="button2">
+        <button type="button">Add Expense</button>
+      </div>
+      <div class="chart">
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Jan</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Feb</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Mar</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Apr</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">May</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Jun</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Jul</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Aug</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Sep</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Oct</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Nov</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler"></div>
+            </div>
+            <div class="chartbar_label">Dec</div>
+          </div>
+      </div>  
+        <div class="expense">
+            <label>Year</label>
+            <select id="yearSelect">
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+        </div>
+        <div class="noexpense">
+            <table>
+                <thead class="data_store">
+                    <tr>
+                        <th>Title</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseTable">
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="total">
+            <b>Total:</b>
+            &#8377; <span id="totalAmount">0</span>
+        </div>
+    </div>
+    <script>
+       
+       document.addEventListener('DOMContentLoaded', function() {
+    const userName = localStorage.getItem('username');  // Retrieves the username from local storage
+    if (userName) {
+        document.getElementById('userEmail').textContent = userName;  // If a username is found, display it in the element with ID 'userEmail'
+    } else {
+        document.getElementById('userEmail').textContent = '';  // If no username is found, display an empty string in the element with ID 'userEmail'
+    }
+});
+
+
+const button = document.querySelector('#refresh');
+const modal = document.querySelector('#logoutModal');
+const confirmLogout = document.getElementById('confirmLogout');
+const cancelLogout = document.getElementById('cancelLogout');
+
+button.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
+
+confirmLogout.addEventListener('click', () => {
+    window.location.href = '/index.html';
+    localStorage.removeItem('username');
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+});
+
+cancelLogout.addEventListener('click', () => {
+    window.location.href = '/dashboard.html';
+});
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     let storedExpensesJSON = localStorage.getItem('expenses');
+//     let storedExpenses = storedExpensesJSON ? JSON.parse(storedExpensesJSON) : [];
+
+//     function renderExpenses(expenses) {
+//         renderFilteredExpenses(expenses);
+//         updateChart(expenses);
+//         updateTotal(expenses);
+//     }
+
+//     function addExpense() {
+//         const title = document.getElementById('title').value.trim();
+//         const amount = parseFloat(document.getElementById('number').value.trim());
+//         const date = document.getElementById('date').value.trim();
+//         const category = document.getElementById('select').value.trim();
+
+//         if (title && amount && date && category) {
+//             let temp = Number(amount);
+//             const expense = { title, temp, date, category };
+//             storedExpenses.push(expense);
+//             saveExpenses();
+//             renderExpenses(filterExpensesByYear(getSelectedYear()));
+//             resetForm();
+//         } else {
+//             alert('Please fill in all fields.');
+//         }
+//     }
+
+//     function saveExpenses() {
+//         localStorage.setItem('expenses', JSON.stringify(storedExpenses));
+//     }
+
+//     function resetForm() {
+//         document.getElementById('title').value = '';
+//         document.getElementById('number').value = '';
+//         document.getElementById('date').value = '';
+//         document.getElementById('select').value = 'food';
+
+//         document.querySelector('.form').style.display = 'none';
+//         document.querySelector('.button2').style.display = 'flex';
+//     }
+
+//     function updateChart(expenses) {
+//         const chartBars = document.querySelectorAll('.chartbar_filler');
+//         chartBars.forEach(bar => bar.style.height = '0%');
+
+//         expenses.forEach(expense => {
+//             const month = new Date(expense.date).getMonth();
+//             const currentHeight = parseFloat(chartBars[month].style.height) || 0;
+//             chartBars[month].style.height = `${currentHeight + expense.temp}px`;
+//         });
+//     }
+
+//     function renderFilteredExpenses(expenses) {
+//         let tableBody = document.getElementById('expenseTable');
+//         let rowsHtml = '';
+
+//         expenses.forEach(expense => {
+//             let categoryIconClass = getCategoryIconClass(expense.category); // Function to get the appropriate icon class
+
+//             rowsHtml += `
+//                 <tr>
+//                     <td>${expense.title}</td>
+//                     <td>${expense.temp}</td>
+//                     <td>${expense.date}</td>
+//                     <td><i class="${categoryIconClass}"></i></td> <!-- Display category icon -->
+//                     <td>
+//           <button class="edit" onclick={edit(${expense.id})}>Edit</button>
+//           <button class="delete" onclick={delet(${expense.id})}>Delete</button>
+//         </td>
+//                 </tr>
+//             `;
+//         });
+
+//         tableBody.innerHTML = rowsHtml;
+//     }
+
+//     function updateTotal(expenses) {
+//         const totalAmount = expenses.reduce((total, expense) => total + expense.temp, 0);
+//         document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
+//     }
+
+//     function getCategoryIconClass(category) {
+//         switch (category) {
+//             case 'food':
+//                 return 'fas fa-utensils'; // Example Font Awesome icon for food
+//             case 'house':
+//                 return 'fas fa-home'; // Example Font Awesome icon for house
+//             case 'transport':
+//                 return 'fas fa-car'; // Example Font Awesome icon for transport
+//             case 'entertainment':
+//                 return 'fas fa-film'; // Example Font Awesome icon for entertainment
+//             case 'communication':
+//                 return 'fas fa-phone'; // Example Font Awesome icon for communication
+//             case 'health':
+//                 return 'fas fa-heart'; // Example Font Awesome icon for health
+//             case 'others':
+//                 return 'fas fa-cog'; // Example Font Awesome icon for others
+//             default:
+//                 return 'fas fa-question'; // Default icon if category is unknown
+//         }
+//     }
+
+//     function filterExpensesByYear(year) {
+//         return storedExpenses.filter(expense => new Date(expense.date).getFullYear() == year);
+//     }
+
+//     function getSelectedYear() {
+//         return document.getElementById('yearSelect').value;
+//     }
+
+//     document.getElementById('confirm').addEventListener('click', () => {
+//         addExpense();
+//     });
+
+//     document.getElementById('cancel').addEventListener('click', () => {
+//         resetForm();
+//     });
+
+//     document.querySelector('.button2 button').addEventListener('click', () => {
+//         document.querySelector('.form').style.display = 'block';
+//         document.querySelector('.button2').style.display = 'none';
+//     });
+
+//     document.getElementById('yearSelect').addEventListener('change', function() {
+//         const selectedYear = this.value;
+//         const filteredExpenses = filterExpensesByYear(selectedYear);
+//         renderExpenses(filteredExpenses);
+//     });
+
+//     // Initial setup: Render blank chart and expense table
+//     renderExpenses([]);
+// });
+document.addEventListener('DOMContentLoaded', function() {
+    let storedExpensesJSON = localStorage.getItem('expenses');
+    let storedExpenses = storedExpensesJSON ? JSON.parse(storedExpensesJSON) : [];
+    let editId = null;
+
+    function renderExpenses(expenses) {
+        renderFilteredExpenses(expenses);
+        updateChart(expenses);
+        updateTotal(expenses);
+    }
+
+    function addExpense() {
+        const title = document.getElementById('title').value.trim();
+        const amount = parseFloat(document.getElementById('number').value.trim());
+        const date = document.getElementById('date').value.trim();
+        const category = document.getElementById('select').value.trim();
+
+        if (title && amount && date && category) {
+            let temp = Number(amount);
+            const expense = { id: Date.now(), title, temp, date, category };
+
+            if (editId === null) {
+                storedExpenses.push(expense);
+            } else {
+                const index = storedExpenses.findIndex(exp => exp.id === editId);
+                storedExpenses[index] = { id: editId, title, temp, date, category };
+                editId = null;
+            }
+
+            saveExpenses();
+            renderExpenses(filterExpensesByYear(getSelectedYear()));
+            resetForm();
+        } else {
+            alert('Please fill in all fields.');
+        }
+    }
+
+    function saveExpenses() {
+        localStorage.setItem('expenses', JSON.stringify(storedExpenses));
+    }
+
+    function resetForm() {
+        document.getElementById('title').value = '';
+        document.getElementById('number').value = '';
+        document.getElementById('date').value = '';
+        document.getElementById('select').value = 'food';
+        document.querySelector('.form').style.display = 'none';
+        document.querySelector('.button2').style.display = 'flex';
+        editId = null;
+    }
+
+    function updateChart(expenses) {
+        const chartBars = document.querySelectorAll('.chartbar_filler');
+        chartBars.forEach(bar => bar.style.height = '0%');
+
+        expenses.forEach(expense => {
+            const month = new Date(expense.date).getMonth();
+            const currentHeight = parseFloat(chartBars[month].style.height) || 0;
+            chartBars[month].style.height = `${currentHeight + expense.temp}px`;
+        });
+    }
+
+    function renderFilteredExpenses(expenses) {
+        let tableBody = document.getElementById('expenseTable');
+        let rowsHtml = '';
+
+        expenses.forEach(expense => {
+            let categoryIconClass = getCategoryIconClass(expense.category);
+
+            rowsHtml += `
+                <tr>
+                    <td>${expense.title}</td>
+                    <td>${expense.temp}</td>
+                    <td>${expense.date}</td>
+                    <td><i class="${categoryIconClass}"></i></td>
+                    <td>
+                        <button class="edit" onclick="edit(${expense.id})">Edit</button>
+                        <button class="delete" onclick="delet(${expense.id})">Delete</button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        tableBody.innerHTML = rowsHtml;
+    }
+
+    function updateTotal(expenses) {
+        const totalAmount = expenses.reduce((total, expense) => total + expense.temp, 0);
+        document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
+    }
+
+    function getCategoryIconClass(category) {
+        switch (category) {
+            case 'food':
+                return 'fas fa-utensils';
+            case 'house':
+                return 'fas fa-home';
+            case 'transport':
+                return 'fas fa-car';
+            case 'entertainment':
+                return 'fas fa-film';
+            case 'communication':
+                return 'fas fa-phone';
+            case 'health':
+                return 'fas fa-heart';
+            case 'others':
+                return 'fas fa-cog';
+            default:
+                return 'fas fa-question';
+        }
+    }
+
+    function filterExpensesByYear(year) {
+        return storedExpenses.filter(expense => new Date(expense.date).getFullYear() == year);
+    }
+
+    function getSelectedYear() {
+        return document.getElementById('yearSelect').value;
+    }
+
+    window.edit = function(id) {
+        const expense = storedExpenses.find(exp => exp.id === id);
+        document.getElementById('title').value = expense.title;
+        document.getElementById('number').value = expense.temp;
+        document.getElementById('date').value = expense.date;
+        document.getElementById('select').value = expense.category;
+
+        document.querySelector('.form').style.display = 'block';
+        document.querySelector('.button2').style.display = 'none';
+
+        editId = id;
+    }
+
+    window.delet = function(id) {
+        storedExpenses = storedExpenses.filter(exp => exp.id !== id);
+        saveExpenses();
+        renderExpenses(filterExpensesByYear(getSelectedYear()));
+    }
+
+    document.getElementById('confirm').addEventListener('click', () => {
+        addExpense();
+    });
+
+    document.getElementById('cancel').addEventListener('click', () => {
+        resetForm();
+    });
+
+    document.querySelector('.button2 button').addEventListener('click', () => {
+        document.querySelector('.form').style.display = 'block';
+        document.querySelector('.button2').style.display = 'none';
+    });
+
+    document.getElementById('yearSelect').addEventListener('change', function() {
+        const selectedYear = this.value;
+        const filteredExpenses = filterExpensesByYear(selectedYear);
+        renderExpenses(filteredExpenses);
+    });
+
+    // Initial setup: Render blank chart and expense table
+    renderExpenses([]);
+});
+
+    </script>
+</body>
+</html>

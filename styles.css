@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:  "Poppins";
+}
+.header{
+    background-color: #ffffff;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 19vh;
+}
+i{
+    font-size: 35px;
+    cursor: pointer;
+}
+.logo{
+    padding-inline: 10px;
+}
+.logo img{
+    height: 19vh;
+}
+.button{
+    padding: 50px 5px;
+    cursor: pointer;
+}
+.section{
+    background: rgb(93,43,131);
+background: linear-gradient(90deg, rgba(93,43,131,0.7483368347338936) 12%, rgba(160,160,228,0.6362920168067228) 39%, rgba(160,160,228,1) 53%, rgba(53,174,207,0.6446953781512605) 74%, rgba(0,212,255,0.10127801120448177) 100%, rgba(81,225,163,0.45702030812324934) 100%, rgba(179,179,190,1) 100%);
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 400px; /* Maximum width */
+    text-align: center;
+}
+.modal-content button{
+   padding: 3px 45px;
+   margin: 20px;
+   border-radius: 20px; 
+   cursor: pointer; 
+   font-size: 14px;
+   border: 1px solid;  
+}
+#confirmLogout{
+    background-color: #007fff;
+    color: white
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.section1 h2{
+    text-align: center;
+    padding: 20px;
+    font-size: 35px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+}
+.form{
+    margin-inline: 100px;
+    display: none;
+}
+select{
+    padding-block: 12px;
+}
+input{
+    padding-block: 12px;
+}
+.button1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button1 button{
+    padding: 5px 45px;
+   margin: 20px;
+   border-radius: 20px; 
+   cursor: pointer; 
+   font-size: 14px;
+   border: 1px solid;
+}
+#confirm{
+    background-color: #007fff;
+    color: #fefefe;
+}
+#cancel{
+    background-color: #fefefe;
+}
+.button2{
+    display: flex;
+    justify-content: center;
+}
+.button2 button{
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 20px;
+    background-color: white;
+    border: 4px solid deepskyblue;
+    cursor: pointer;
+}
+.chart{
+    display: flex;
+    height: 150px;
+    text-align: center;
+    justify-content: space-around;
+    padding: 20px 150px;
+}
+.chartbar, .chartbar_inner{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.chartbar_inner{
+    background-color: #ebebeb;
+    border-radius: 2px;
+    justify-content: flex-end;
+    overflow: hidden;
+    width: 100%;
+}
+.chartbar_filler{
+    background-color: #26b4b9;
+    transition: all .3s ease-out;
+    width: 100%;
+}
+.chartbar_label{
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+.expense{
+    font-size: 18px;
+    padding: 15px;
+    text-align: right;
+}
+.expense label{
+    padding-right: 10px;
+}
+.expense select{
+     padding-block: 0px;
+}
+.total{
+    font-size: 24px;
+    margin-right: 50px;
+    text-align: right
+}
+th{
+    padding-inline: 60px;
+}
+td{
+    padding-inline: 60px;
+}
+table .edit{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+table .delete{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+@media screen and (max-width:480px){
+    .logo img{
+        height: 15vh;
+        width: 225px;
+    }
+    .button{
+        padding: 27px 5px;
+    }
+    .header{
+      height: 15vh;
+    }
+    i{
+        font-size: 25px;
+    }
+    .modal-content button{
+        padding: 5px 45px;
+        margin: 5px;
+        border-radius: 20px; 
+        cursor: pointer; 
+        font-size: 12px;
+        border: 1px solid;  
+     }
+     .modal-content {
+        background-color: #fefefe;
+        margin: 50% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 10px;
+        width: 80%; /* Could be more or less, depending on screen size */
+        max-width: 400px; /* Maximum width */
+        text-align: center;
+    }
+
+}
+@media screen and (min-width:481px) and (max-width:800px){
+    .button{
+        padding: 24px 5px;
+    }
+    .header{
+        height: 14vh;
+    }
+    .logo img{
+        height: 14vh;
+        width: 200px;
+    }
+    i{
+        font-size: 20px;
+    }
+}
+@media screen and (min-width:801px) and (max-width:1100px){
+    .button{
+        padding: 36px 5px;
+    }
+    .header{
+        height: 14vh;
+    }
+    .logo img{
+        height: 14vh;
+        width: 200px;
+    }
+    i{
+        font-size: 25px;
+    }
+}
+@media screen and (min-width:1101px) and (max-width:1500px){
+    .button{
+        padding: 40px 5px;
+    }
+    .header{
+        height: 14vh;
+    }
+    .logo img{
+        height: 14vh;
+        width: 300px;
+    }
+    i{
+        font-size: 30px;
+    }
+}
+@media screen and (min-width:1501px){
+    .button{
+        padding: 44px 5px;
+    }
+    .header{
+        height: 14vh;
+    }
+    .logo img{
+        height: 14vh;
+        width: 300px;
+    }
+    i{
+        font-size: 35px;
+    }
+}

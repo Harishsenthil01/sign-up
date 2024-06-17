@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" 
+rel="stylesheet">
+<script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+      <div class="section"> 
+        <div class="section-left">
+            <h1>PLAY IT</h1>
+            <p>lorem ispunm is dummy text of printing</p>
+            <img src="bird.jpeg">
+        </div>
+        <div class="section-right">
+            <h1>SIGN UP</h1>
+            <div class="form">
+                  <button type="button"<i class="fa-brands fa-google"></i><span style="text-transform: capitalize;">&nbsp;Sign up with google</span></button><span></span>
+                  <button type="button"<i class="fa-brands fa-apple"></i><span style="text-transform: capitalize;">&nbsp;Sign up with apple</span></button>
+            </div>
+            <div class="input-form">
+                <div class="input-group">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username" name="username" >
+                    <div class="error"></div>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" >
+                    <div class="error"></div>
+                </div>
+                <div class="input-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password">
+                  <div class="error"></div>
+                </div>
+                <div class="input-group">
+                    <label for="cpassword">Confirm Password</label>
+                    <input type="password" id="cpassword" name="cpassword" >
+                    <div class="error"></div>
+                </div>
+            </div>
+            <!-- <div class="checkbox">
+                 <input type="checkbox">
+                <label for="text">Remember</label>
+            </div> -->
+            <p>By signing up,you confirm that you have read and accepted our<a href="#terms of service">Terms of service</a>and
+                <a href="#privacy policy"> privacy policy</a></p>
+                
+            <div class="button" id="signup">
+                    <button type="button">Sign up</button>
+            </div>
+            <!-- <div class="anchor">
+                  <a href="#forgot password">Forgot password</a>
+            </div>-->
+            <p class="account">If you have an account &nbsp;<a href="login.html" target="_self">Login</a></p> 
+        </div>
+      </div>
+    </div>
+</body>
+</html>

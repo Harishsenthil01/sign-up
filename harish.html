@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .logo img {
+            height: 50px;
+        }
+        .button {
+            position: relative;
+        }
+        .tooltip-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .section {
+            padding: 20px;
+        }
+        .section1 {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px;
+        }
+        .form {
+            display: none;
+        }
+        .content {
+            margin-bottom: 10px;
+        }
+        .content label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .content input,
+        .content select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        .button1 {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button2 {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .button2 button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chart {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .chartbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 5px;
+        }
+        .chartbar_inner {
+            width: 30px;
+            height: 100px;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .chartbar_filler {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #007bff;
+        }
+        .chartbar_label {
+            margin-top: 5px;
+        }
+        .expense,
+        .noexpense,
+        .total {
+            margin-top: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .modal-content .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .modal-content .close:hover,
+        .modal-content .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style> 
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+             <img src="focus.png" alt="Logo">
+        </div>
+        <div class="button" id="refresh">
+            <button class="tooltip-button" type="button" title="logout"><i class="fa-solid fa-power-off"></i></button>
+            <div id="logoutModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Are you sure you want to logout?</p>
+                    <button id="cancelLogout">No</button>
+                    <button id="confirmLogout">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h1>Welcome to your Dashboard</h1>
+        <p>Your email: <span id="userEmail"></span></p>
+    </div>
+    <div class="section1">
+      <h2>Expense Tracker</h2> 
+      <div class="form">
+        <div class="content">
+             <label for="title">Title</label>
+             <input type="text" id="title">
+        </div>
+        <div class="content">
+             <label for="amount">Amount</label>
+             <input type="number" id="number">
+        </div>
+        <div class="content">
+           <label for="date">Date</label>
+           <input type="date" id="date">
+        </div>
+        <div class="content">
+           <label for="category">Category</label>
+           <select id="select">
+              <option value="food">Food</option>
+              <option value="house">House</option>
+              <option value="transport">Transport</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="communication">Communication</option>
+              <option value="health">Health</option>
+              <option value="others">Others</option>
+           </select>
+        </div>
+        <div class="button1">
+            <button type="button" id="confirm">Add Expense</button>
+            <button type="button" id="cancel">Cancel</button>
+        </div>
+      </div>
+      <div class="button2">
+        <button type="button">Add Expense</button>
+      </div>
+      <div class="chart">
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="janFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Jan</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="febFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Feb</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="marFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Mar</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="aprFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Apr</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="mayFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">May</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="junFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Jun</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="julFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Jul</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="augFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Aug</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="sepFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Sep</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="octFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Oct</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="novFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Nov</div>
+          </div>
+          <div class="chartbar">
+            <div class="chartbar_inner">
+                <div class="chartbar_filler" id="decFiller" style="height: 0%;"></div>
+            </div>
+            <div class="chartbar_label">Dec</div>
+          </div>
+      </div>  
+        <div class="expense">
+            <label>Year</label>
+            <select id="yearSelect">
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+        </div>
+        <div class="noexpense">
+            <table>
+                <thead class="data_store">
+                    <tr>
+                        <th>Title</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody id="expenseTable">
+                    <!-- Expense items will be added here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="total">
+            <b>Total: &#8377; 0.00</b>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userEmail = localStorage.getItem('email');
+            if (userEmail) {
+                document.getElementById('userEmail').textContent = userEmail;
+            } else {
+                document.getElementById('userEmail').textContent = 'No email found.';
+            }
+        });
+
+        const refresh = document.querySelector('#refresh');
+        const modal = document.querySelector('#logoutModal');
+        const closeSpan = document.getElementsByClassName('close')[0];
+        const confirmLogout = document.getElementById('confirmLogout');
+        const cancelLogout = document.getElementById('cancelLogout');
+
+        refresh.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        closeSpan.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        confirmLogout.addEventListener('click', () => {
+            localStorage.removeItem('username');
+            localStorage.removeItem('email');
+            localStorage.removeItem('password');
+            window.location.href = '/index.html';
+        });
+
+        cancelLogout.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        const buttonClick = document.querySelector('.button2 button');
+        buttonClick.addEventListener('click', () => {
+            document.querySelector('.form').style.display = 'block';
+            document.querySelector('.button2').style.display = 'none';
+        });
+
+        let allExpenses = [];
+
+        function addExpense() {
+            const title = document.getElementById('title').value.trim();
+            const amount = document.getElementById('number').value.trim();
+            const date = document.getElementById('date').value.trim();
+            const category = document.getElementById('select').value.trim();
+
+            if (title && amount && date && category) {
+                const expense = { title, amount: parseFloat(amount), date, category };
+                allExpenses.push(expense);
+                renderExpenses();
+                document.getElementById('title').value = '';
+                document.getElementById('number').value = '';
+                document.getElementById('date').value = '';
+                document.getElementById('select').value = 'food';
+                document.querySelector('.form').style.display = 'none';
+                document.querySelector('.button2').style.display = 'block';
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        function renderExpenses() {
+            const selectedYear = document.getElementById('yearSelect').value;
+            const expenseTable = document.getElementById('expenseTable');
+            expenseTable.innerHTML = '';
+            const filteredExpenses = allExpenses.filter(expense => new Date(expense.date).getFullYear().toString() === selectedYear);
+
+            filteredExpenses.forEach(expense => {
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
+                    <td>${expense.title}</td>
+                    <td>&#8377; ${expense.amount.toFixed(2)}</td>
+                    <td>${expense.date}</td>
+                    <td>${expense.category}</td>
+                `;
+                expenseTable.appendChild(newRow);
+            });
+
+            updateTotal(filteredExpenses);
+            updateChart(filteredExpenses);
+        }
+
+        function updateTotal(expenses) {
+            const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+            document.querySelector('.total b').innerHTML = `Total: &#8377; ${total.toFixed(2)}`;
+        }
+
+        function updateChart(expenses) {
+            const chartBars = document.querySelectorAll('.chartbar_filler');
+            chartBars.forEach(bar => bar.style.height = '0%');
+
+            expenses.forEach(expense => {
+                const month = new Date(expense.date).getMonth();
+                const currentHeight = parseFloat(chartBars[month].style.height) || 0;
+                chartBars[month].style.height = `${currentHeight + expense.amount}px`;
+            });
+        }
+
+        document.getElementById('confirm').addEventListener('click', addExpense);
+        document.getElementById('cancel').addEventListener('click', () => {
+            document.getElementById('title').value = '';
+            document.getElementById('number').value = '';
+            document.getElementById('date').value = '';
+            document.getElementById('select').value = 'food';
+            document.querySelector('.form').style.display = 'none';
+            document.querySelector('.button2').style.display = 'block';
+        });
+        document.getElementById('yearSelect').addEventListener('change', renderExpenses);
+
+        document.addEventListener('DOMContentLoaded', renderExpenses);
+    </script>
+</body>
+</html>

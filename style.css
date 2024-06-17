@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+}
+/* html{
+    background-color: black;
+}
+.container{
+    margin: 80px;
+} */
+.container .section{
+    display: flex;
+    width: 100%;
+}
+ .section-left{
+   
+    background-color:rgb(65,2,0);
+    width: 100%;
+    color: white;
+}
+.section-left h1{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.section-left p{
+    padding-inline: 20px;
+}
+.section-left img{
+    margin-top: 100px;
+    margin-inline: 10px;
+}
+.section-right{
+    width: 100%;
+    background-color: white;
+    margin-inline: 80px;
+}
+.section-right h1{
+    margin: 20px 5px;
+}
+.form{
+    width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.form button{
+margin-inline: 20px;
+width: 40%;
+padding: 10px;
+font-size: 15px;
+background-color: ghostwhite;
+cursor: pointer;
+border-radius: 10px;
+border: 1px solid grey;
+} 
+.input-form{
+    display: flex;
+    flex-direction: column;
+    margin-inline: 20px;
+}
+.input-form label{
+    font-size: 20px;
+    padding: 10px;
+}
+.input-form input{
+    padding: 10px;
+}
+.input-group{
+    display: flex;
+    flex-direction: column;
+}
+.input-form input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+.input-group .error{
+    color: red;
+    margin-top: 5px;
+}
+.input-group .success input{
+    border-color: greenyellow;
+}
+.input-group .error input{
+    border-color: red;
+}
+.checkbox{
+    margin: 20px;
+}
+p{
+    text-align: center;
+    padding-inline: 10px;
+    padding-block: 30px;
+}
+.button{
+    margin: 20px;
+}
+.button button{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+.anchor{
+    text-align: center;
+    margin-block: 20px;
+}
+.account{
+    padding: 0;
+}
+@media screen and (max-width:480px){
+    .section-left{
+        display: none;
+    }
+    .container{
+        margin: 0;
+    }
+    .section-right{
+        width: 100%;
+        margin-inline: 0px;
+    }
+    html{
+        background: none;
+    }
+}
+@media screen and (min-width:481px) and (max-width:760px){
+    .section-left img{
+        margin-top: 100px;
+        margin-inline: 10px;
+    }
+    .form button{
+        margin-inline: 20px;
+        width: 40%;
+        padding: 10px 0px;
+        font-size: 10px;
+        background-color: ghostwhite;
+        cursor: pointer;
+        border-radius: 10px;
+        } 
+        .section-right{
+            width: 100%;
+    background-color: white;
+    /* margin-inline: 80px; */
+    margin: 40px
+        }
+}
+@media screen and (min-width:761px) and (max-width:1099px){
+    
+    .section-right{
+       margin: 50px;
+    }
+    .section-left img{
+       width: 350px;
+    }
+    .section-left{
+        padding-block: 100px;
+        width: 50%;
+    }
+}
+@media screen and (min-width:1100px) and (max-width:1439px){
+    .section-left img{
+      margin: 40px;
+      width: 450px;
+    }
+    
+    .section-right{
+       margin: 100px;
+    }
+    .section-left{
+        padding-block: 90px;
+    }
+    .section-left p{
+        padding-block: 0px;
+    }
+}
+@media screen and (min-width:1440px){
+    .section-left img{
+        margin: 80px;
+        width: 460px;
+      }
+      
+      .section-right{
+         margin: 100px;
+      }
+      .section-left{
+          padding-block: 90px;
+      }
+}
