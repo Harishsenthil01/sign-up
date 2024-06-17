@@ -56,6 +56,12 @@ rel="stylesheet">
       </div>
     </div>
 </body>
-<script src="main.js" defer></script>
+<script src="main.js" defer>
+   document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Perform login validation here
+            window.location.href = 'dashboard.html'; // Navigate to dashboard after login
+        });
+</script>
 
 </html>
