@@ -12,7 +12,7 @@ const storedPassword = localStorage.setItem('password', password.value.trim());
  console.log(xyz === true && email.value !=='' && password.value!=='')
     if(xyz === true){
         
-        window.location.href = '/sign-up/dashboard.html'
+        window.location.href = '/dashboard.html'
         
     }
     
